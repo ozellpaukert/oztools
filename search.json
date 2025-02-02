@@ -1,0 +1,64 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "oztools",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "oztools"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "oztools",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall oztools in Development mode\n# make sure oztools package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to oztools\n$ nbdev_prepare",
+    "crumbs": [
+      "oztools"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "oztools",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/ozellpaukert/oztools.git\nor from conda\n$ conda install -c ozellpaukert oztools\nor from pypi\n$ pip install oztools\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "oztools"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "oztools",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
+    "crumbs": [
+      "oztools"
+    ]
+  },
+  {
+    "objectID": "api/kgl.html",
+    "href": "api/kgl.html",
+    "title": "kgl",
+    "section": "",
+    "text": "api = import_kaggle()\ncomps = api.competitions_list()\ncomp = comps[0]\ncomp.title, comp.url.split(\"/\")[-1]\n\n('AI Mathematical Olympiad - Progress Prize 2',\n 'ai-mathematical-olympiad-progress-prize-2')\n\n\n\nlen(\"equity-post-HCT-survival-prediction  \")\n\n37\n\n\n\nsource\n\npad\n\n pad (s, pad_to)\n\n\ntest_eq(pad(\"hello\", 37), 'hello                                ')\n\n\nsource\n\n\ndisp_comp\n\n disp_comp (comp)\n\n\nsource\n\n\nattrkey\n\n attrkey (attr)\n\n\njoinedkey = attrkey(\"userHasEntered\")\n\n\ncomps.sort(key=joinedkey)\nactive, entered = (list(y) for x,y in it.groupby(comps, lambda x: x.userHasEntered))\n\n\nsource\n\n\nstr_enumerate\n\n str_enumerate (lst, start=0)\n\n\nsource\n\n\ncz\n\n cz (*funcs)\n\nCompose functions together\nExamples:\nFunction to compute number of digits in a decimal representation of a number:\n\ncz(str, len)(32)\n\n2\n\n\n\nsource\n\n\nkgl_list\n\n kgl_list ()\n\nList kaggle competitions\n\nprint(kgl_list())\n\nJoined:\n  1   czii-cryo-et-object-identification       CZII - CryoET Object Identification\n  2   equity-post-HCT-survival-predictions     CIBMTR - Equity in post-HCT Survival Pre\n  3   playground-series-s5e2                   Backpack Prediction Challenge\n  4   store-sales-time-series-forecasting      Store Sales - Time Series Forecasting\nActive:\n  5   ai-mathematical-olympiad-progress-prize- AI Mathematical Olympiad - Progress Priz\n  6   konwinski-prize                          Konwinski Prize\n  7   llms-you-cant-please-them-all            LLMs - You Can't Please Them All\n  8   fide-google-efficiency-chess-ai-challeng FIDE & Google Efficient Chess AI Challen\n  9   wsdm-cup-multilingual-chatbot-arena      WSDM Cup - Multilingual Chatbot Arena\n  10  lux-ai-season-3                          NeurIPS 2024 - Lux AI Season 3\n  11  titanic                                  Titanic - Machine Learning from Disaster\n  12  home-data-for-ml-course                  Housing Prices Competition for Kaggle Le\n  13  house-prices-advanced-regression-techniq House Prices - Advanced Regression Techn\n  14  spaceship-titanic                        Spaceship Titanic\n  15  digit-recognizer                         Digit Recognizer\n  16  nlp-getting-started                      Natural Language Processing with Disaste\n  17  gan-getting-started                      I’m Something of a Painter Myself\n  18  connectx                                 Connect X\n  19  llm-classification-finetuning            LLM Classification Finetuning\n  20  tpu-getting-started                      Petals to the Metal - Flower Classificat\n\n\n\nsource\n\n\nkgl_hello\n\n kgl_hello ()",
+    "crumbs": [
+      "api",
+      "kgl"
+    ]
+  },
+  {
+    "objectID": "api/gh.html",
+    "href": "api/gh.html",
+    "title": "gh",
+    "section": "",
+    "text": "To use this module you need to setup GitHub personal access token, which is a secret code used to access your account. If you don’t have one, click here to create one. You’ll be asked to enter a name – choose anything you like, for instance “oztools”. In “scopes” choose “repo”, “gist”, “notifications”, and “workflow”. Then clock “Generate Token” and copy the token. Then add it for example to your .bashrc as export GITHUB_TOKEN=\"&lt;your github token goes here&gt;\".\n\nimport configparser\nfrom pathlib import Path\n\n\nconfigpath = Path(\"~/.gitconfig\").expanduser()\n\nconfig = configparser.ConfigParser()\nconfig.read(configpath)\n\ngh_username = config['user']['name']\n\n\ntoken = os.environ[\"GITHUB_TOKEN\"]\n\n\napi = GhApi(owner=gh_username, token=token)\n\n\napi.git.get_ref(repo='oztools', ref='heads/main')\n\n{ 'node_id': 'REF_kwDONy_jba9yZWZzL2hlYWRzL21haW4',\n  'object': { 'sha': '8a23e2af6915688ab9947858e904077ef62bbda0',\n              'type': 'commit',\n              'url': 'https://api.github.com/repos/ozellpaukert/oztools/git/commits/8a23e2af6915688ab9947858e904077ef62bbda0'},\n  'ref': 'refs/heads/main',\n  'url': 'https://api.github.com/repos/ozellpaukert/oztools/git/refs/heads/main'}\n\n\n\napi.git\n\n\ngit.create_blob(repo, content, encoding): Create a blob\ngit.get_blob(repo, file_sha): Get a blob\ngit.create_commit(repo, message, tree, parents, author, committer, signature): Create a commit\ngit.get_commit(repo, commit_sha): Get a commit object\ngit.list_matching_refs(repo, ref): List matching references\ngit.get_ref(repo, ref): Get a reference\ngit.create_ref(repo, ref, sha): Create a reference\ngit.update_ref(repo, ref, sha, force): Update a reference\ngit.delete_ref(repo, ref): Delete a reference\ngit.create_tag(repo, tag, message, object, type, tagger): Create a tag object\ngit.get_tag(repo, tag_sha): Get a tag\ngit.create_tree(repo, tree, base_tree): Create a tree\ngit.get_tree(repo, tree_sha, recursive): Get a tree\n\n\n\n\n#api.repos.list_for_org(\"\")",
+    "crumbs": [
+      "api",
+      "gh"
+    ]
+  }
+]
